@@ -27,10 +27,10 @@ these commands as the root user.
 
 1. copy/clone the contents of this repository
 2. fully disable the cfengine3 service, built automatically by systemd from
-the init.d file: ```systemctl mask cfengine3.service```
-3. copy the unit files from the repository into `/usr/local/lib/systemd/system`: ```cp *.service cfengine3.target /usr/local/lib/systemd/system```
+the init.d file:<br/>```systemctl mask cfengine3.service```
+3. copy the unit files from the repository into `/usr/local/lib/systemd/system`:<br/>```cp *.service cfengine3.target /usr/local/lib/systemd/system```
 4. reload the configuration of systemd via ```systemctl daemon-reload```
-5. now stop the running CFEngine services and start the target, e.g.: ```/etc/init.d/cfengine3 stop ; systemctl start cfengine3.target```
+5. now stop the running CFEngine services and start the target, e.g.:<br/>```/etc/init.d/cfengine3 stop ; systemctl start cfengine3.target```
 
-If everything went well, you should like the output of the command `systemctl status cfengine3.target cf-serverd cf-execd cf-monitord`. And if you kill one of the daemons and run `systemctl` again you will like the output even more `:-)`
+If everything went well, you should like the output of the command `systemctl status cfengine3.target cf-serverd cf-execd cf-monitord`. And if you kill one of the daemons and run the same command again you will like the output even more `:-)`
 
