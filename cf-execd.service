@@ -1,0 +1,9 @@
+[Unit]
+Description=scheduling daemon for cf-agent
+Documentation=man:cf-execd https://docs.cfengine.com/latest/reference-components-cf-execd.html
+Requires=cfengine3.target
+
+[Service]
+Type=simple
+ExecStart=/var/cfengine/bin/cf-execd -F
+Restart=always

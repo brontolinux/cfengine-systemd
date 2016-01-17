@@ -1,0 +1,9 @@
+[Unit]
+Description=monitoring daemon for CFEngine
+Documentation=man:cf-monitord https://docs.cfengine.com/latest/reference-components-cf-monitord.html
+Requires=cfengine3.target
+
+[Service]
+Type=simple
+ExecStart=/var/cfengine/bin/cf-monitord -F
+Restart=always

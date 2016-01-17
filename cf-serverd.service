@@ -1,0 +1,9 @@
+[Unit]
+Description=CFEngine file server daemon
+Documentation=man:cf-serverd https://docs.cfengine.com/latest/reference-components-cf-serverd.html
+Requires=cfengine3.target
+
+[Service]
+Type=simple
+ExecStart=/var/cfengine/bin/cf-serverd -F
+Restart=always
