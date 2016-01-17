@@ -22,7 +22,7 @@ dies, for any reason, systemd will start a new instance nearly immediately.
 
 The following instructions assume
 that you have installed cfengine-community from the [official package
-for Debian|https://cfengine.com/product/community/] and that you'll run
+for Debian](https://cfengine.com/product/community/) and that you'll run
 these commands as the root user.
 
 1. copy/clone the contents of this repository
