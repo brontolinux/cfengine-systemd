@@ -1,6 +1,6 @@
 # cfengine-systemd
 
-**This is still experimental!**. I decided to write these unit files as an
+**This is still experimental!** I decided to write these unit files as an
 exercise while learning systemd. I tried them on my own laptop running
 Debian Jessie 8.2 and they work like a charm, but they definitely need
 more testing. You are welcome to test them on different distributions,
@@ -9,14 +9,21 @@ report success/failure or submit pull requests to fix bugs.
 
 ## Features
 
-Provides service files for the three CFEngine daemons (in the community
-edition): cf-serverd, cf-execd and cf-monitord. It also provides a special
-"target" that requests, but **doesn't require**, the three services to
-start, so that it's still possible to disable one or more daemons without
-causing the target to fail.
+This distribution provides service files for the three CFEngine daemons (in the community
+edition): cf-serverd, cf-execd and cf-monitord. `Restart=always` is
+set for the three daemons, so that if any of them
+dies for any reason, systemd will start a new instance nearly immediately.
 
-`Restart=always` is also set for the three daemons, so that if any of them
-dies, for any reason, systemd will start a new instance nearly immediately.
+This distribution also provides a special "target", `cfengine3.target`
+that is designed to replace
+the service `cfengine3.service` automatically created by systemd from
+the init.d file. The target file requests (but **doesn't require!**)
+the three daemon services to start, so that it's still possible to disable one
+or more daemons without causing the target to fail. It also provides means
+to stop all the services at once by issuing `systemctl stop cfengine3.target`,
+the same way you would stop all services using the init script.
+
+
 
 ## Installation
 
