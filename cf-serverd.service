@@ -1,6 +1,9 @@
 [Unit]
 Description=CFEngine file server daemon
 Documentation=man:cf-serverd https://docs.cfengine.com/latest/reference-components-cf-serverd.html
+
+# The following ensures that this service is shut down when the cfengine3
+# target is stopped
 Requires=cfengine3.target
 
 [Service]

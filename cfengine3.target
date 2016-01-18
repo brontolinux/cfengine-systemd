@@ -2,9 +2,13 @@
 Description=CFEngine configuration management system
 Documentation=https://docs.cfengine.com/latest/
 
+# The following ensure that CFEngine daemons are requested to start
+# when this target is activated
 Wants=cf-serverd.service
 Wants=cf-execd.service
 Wants=cf-monitord.service
 
 [Install]
+# The following ensures that this target is made part of the multi-user
+# target
 WantedBy=multi-user.target

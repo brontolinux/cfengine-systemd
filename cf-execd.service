@@ -1,6 +1,9 @@
 [Unit]
 Description=scheduling daemon for cf-agent
 Documentation=man:cf-execd https://docs.cfengine.com/latest/reference-components-cf-execd.html
+
+# The following ensures that this service is shut down when the cfengine3
+# target is stopped
 Requires=cfengine3.target
 
 [Service]
