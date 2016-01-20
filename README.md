@@ -35,9 +35,18 @@ these commands as the root user.
 1. copy/clone the contents of this repository
 2. fully disable the cfengine3 service, built automatically by systemd from
 the init.d file:<br/>```systemctl mask cfengine3.service```
-3. copy the unit files from the repository into `/usr/local/lib/systemd/system`:<br/>```cp *.service cfengine3.target /usr/local/lib/systemd/system```
+3. copy the unit files from the repository into `/etc/systemd/system`:<br/>```cp *.service cfengine3.target /etc/systemd/system```<br/>(but see the note below)
 4. reload the configuration of systemd via ```systemctl daemon-reload```
 5. now stop the running CFEngine services and start the target, e.g.:<br/>```/etc/init.d/cfengine3 stop ; systemctl start cfengine3.target```
 
 If everything went well, you should like the output of the command `systemctl status cfengine3.target cf-serverd cf-execd cf-monitord`. And if you kill one of the daemons and run the same command again you will like the output even more `:-)`
 
+**Note:** In Debian you also have the option to use
+`/usr/local/lib/systemd/system`, as reported in Debian's
+[man systemd](http://manpages.debian.org/cgi-bin/man.cgi?query=systemd&apropos=0&sektion=0&manpath=Debian+8+jessie&format=html&locale=en).
+I actually used
+that directory in my experiments since I didn't want to "pollute"
+`/etc/systemd/system`, which contained other stuff created by systemd itself.
+You should use `/etc/systemd/system` for cross-distribution compatibility,
+but if you are on Debian and you're just experimenting,
+`/usr/local/lib/systemd/system` is also a viable choice.
