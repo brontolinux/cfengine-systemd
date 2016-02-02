@@ -2,6 +2,8 @@
 Description=monitoring daemon for CFEngine
 Documentation=man:cf-monitord https://docs.cfengine.com/latest/reference-components-cf-monitord.html
 
+# The following ensures that cf-monitord is started when the network is available
+After=network.target
 
 # The following ensures that the service is activated only if we have a
 # promises.cf in place. If there is no promises.cf, there is no configuration
