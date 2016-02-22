@@ -56,7 +56,7 @@ but if you are on Debian and you're just experimenting,
 I have observed a behavior that I didn't expect, probably due to the service
 units being called by the target unit instead of directly. If you disable a
 service via systemctl, say cf-serverd, that service will be nonetheless
-brought up at the next start of the cfengine3.target. To ensure that the
+brought up at the next start of the cfengine3 target. To ensure that the
 service is really disabled and for good, you need to **mask** it:
 
 
