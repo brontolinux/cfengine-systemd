@@ -50,3 +50,22 @@ that directory in my experiments since I didn't want to "pollute"
 You should use `/etc/systemd/system` for cross-distribution compatibility,
 but if you are on Debian and you're just experimenting,
 `/usr/local/lib/systemd/system` is also a viable choice.
+
+
+## Disabling services
+I have observed a behavior that I didn't expect, probably due to the service
+units being called by the target unit instead of directly. If you disable a
+service via systemctl, say cf-serverd, that service will be nonetheless
+brought up at the next start of the cfengine3.target. To ensure that the
+service is really disabled and for good, you need to **mask** it:
+
+
+```
+root@murray:~# systemctl mask cf-serverd.service 
+Created symlink from /etc/systemd/system/cf-serverd.service to /dev/null.
+root@murray:~# 
+
+```
+
+Notice that, as explained earlier in this document, that won't prevent the
+other services to start.
