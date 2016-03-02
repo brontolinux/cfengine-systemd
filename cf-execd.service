@@ -10,9 +10,12 @@ After=network.target
 # for the service either...
 ConditionPathExists=/var/cfengine/inputs/promises.cf
 
-# The following ensures that this service is shut down when the cfengine3
-# target is stopped
-Requires=cfengine3.target
+
+[Install]
+# The following ensures that this service is made part of the multi-user
+# target
+WantedBy=multi-user.target
+
 
 [Service]
 Type=simple
