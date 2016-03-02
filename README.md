@@ -44,13 +44,3 @@ You should use `/etc/systemd/system` for cross-distribution compatibility,
 but if you are on Debian and you're just experimenting,
 `/usr/local/lib/systemd/system` is also a viable choice.
 
-
-```
-root@murray:~# systemctl mask cf-serverd.service 
-Created symlink from /etc/systemd/system/cf-serverd.service to /dev/null.
-root@murray:~# 
-
-```
-
-Notice that, as explained earlier in this document, that won't prevent the
-other services to start.
