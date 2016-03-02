@@ -29,7 +29,7 @@ the init.d file:<br/>```systemctl mask cfengine3.service```
 3. copy the unit files from the repository into `/etc/systemd/system`:<br/>```cp *.service /etc/systemd/system```<br/>(but see the note below)
 4. reload the configuration of systemd via ```systemctl daemon-reload```
 5. stop the running CFEngine services, e.g. via ```/etc/init.d/cfengine3 stop```
-6. start the new separate services:<br/> ```systemctl start cf-serverd.service``` and same for cf-execd.service and cf-monitord.service
+6. start the new separate services:<br/> ```systemctl start cf-serverd.service```<br/>and same for cf-execd.service and cf-monitord.service
 
 If everything went well, you should like the output of the command `systemctl status cf-serverd cf-execd cf-monitord`. And if you kill one of the daemons and run the same command again you will like the output even more `:-)`
 
