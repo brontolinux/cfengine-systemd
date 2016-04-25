@@ -10,12 +10,15 @@ After=network.target
 # for the service either...
 ConditionPathExists=/var/cfengine/inputs/promises.cf
 
+# The following allows stopping/restarting of this service when
+# cfengine3.serice is stopped/restarted
+PartOf=cfengine3.service
 
 [Install]
-# The following ensures that this service is made part of the multi-user
-# target
-WantedBy=multi-user.target
-
+# The following ensures that the symlink to this unit is created in the
+# cfengine3.service.requires/ directory when this unit is enabled
+# with "systemctl enable" command, and removed with "systemctl disable"
+RequiredBy=cfengine3.service
 
 [Service]
 Type=simple

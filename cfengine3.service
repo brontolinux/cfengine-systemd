@@ -1,0 +1,14 @@
+[Unit]
+Description=CFEngine 3 daemons
+Documentation=https://docs.cfengine.com/lts
+
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+ExecReload=/bin/true
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
