@@ -1,0 +1,16 @@
+[Unit]
+Description=CFEngine 3 daemons
+Documentation=https://docs.cfengine.com/lts
+
+After=network.target
+
+Requires=cf-execd.service cf-monitord.service cf-serverd.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+ExecReload=/bin/true
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
