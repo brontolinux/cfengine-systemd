@@ -32,7 +32,7 @@ these commands as the root user.
 2. stop the running CFEngine services, e.g. via ```/etc/init.d/cfengine3 stop```
 3. copy the unit files from the repository into `/etc/systemd/system`:<br/>```cp *.service /etc/systemd/system```<br/>(but see the note below)
 4. reload the configuration of systemd via ```systemctl daemon-reload```
-5. enable individual services that should be started by cfengine service:<br/>```systemctl enable cf-execd.service```<br/> and same for cf-execd.service and cf-monitord.service
+5. enable individual services that should be started by cfengine service:<br/>```systemctl enable cf-execd.service```<br/> and same for cf-serverd.service and cf-monitord.service
 6. start the new cfengine3.service:<br/> ```systemctl start cfengine3.service```
 7. to start services during boot enable cfengine3 service via
    ```systemctl enable cfengine3.service```
